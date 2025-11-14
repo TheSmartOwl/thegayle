@@ -43,8 +43,8 @@ Score above 100 is gay
 					},
 					total() {
 						let temp = 0
-						temp += (this.make=="subaru"?50:0)+(this.make=="other"?0:0)
-						temp += (this.model=="wrx"?-500:0)+(this.model=="xv"?100:0)+(this.model=="forester"?100:0)+(this.model=="outback"?100:0)+(this.model=="other"?0:0)
+						temp += (this.make=="subaru"?70:0)+(this.make=="other"?0:0)
+						temp += (this.model=="wrx"?-500:0)+(this.model=="xv"?100:0)+(this.model=="forester"?100:0)+(this.model=="outback"?100:0)+(this.model=="liberty"?10:0)+(this.model=="impreza"?10:0)
 						temp += (this.mods.coilovers?-10:0)+(this.mods.darktint?-20:0)+(this.mods.fakeaero?100:0)+(this.mods.spoiler?10:0)+(this.mods.ecuremap?-20:0)+(this.mods.camber?1000:0)+(this.mods.underglow?50:0)
 						temp += (this.mods.bucketseats?-5:0)+(this.mods.cannonexhaust?15:0)+(this.mods.goodtyres?-10:0)+(this.mods.resonatorandmufflerdelete?300:0)+(this.mods.aftermarketcoldairintake?30:0)
 						return temp
@@ -69,7 +69,8 @@ Score above 100 is gay
 			<b>Outback</b><input type="radio" v-model="model" value="outback">
 			<b>Forester</b><input type="radio" v-model="model" value="forester">
 			<b>XV</b><input type="radio" v-model="model" value="xv">
-			<b>Other</b><input type="radio" v-model="model" value="other">
+			<b>Liberty</b><input type="radio" v-model="model" value="liberty">
+		    <b>Impreza</b><input type="radio" v-model="model" value="liberty">
 			</p>
 			<div id='mods'>
 				Coilovers: <input type="checkbox" v-model="mods.coilovers"><br>
@@ -94,4 +95,5 @@ Score above 100 is gay
 		</div>
 	</body>
 </html>
+
 
