@@ -1,0 +1,93 @@
+<!--
+Notes:
+Submit model year make and mods and determines how gay it is
+Gives solutions on how to make it less gay (more mods, selling, scrapping)
+Drop down for checklist of mods
+Score above 100 is gay
+-->
+<html>
+	<head>
+		<title>The Gayle</title>
+	</head>
+	<body>
+		<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js></script>
+		<script type="module">
+			import 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.8/vue.min.js'
+			let app = new Vue({
+				el: "#app",
+				data: {
+					tween: 0,
+					make: "",
+					model: "",
+					mods: {
+						coilovers: false,
+						darktint: false,
+						fakeaero: false,
+						spoiler: false,
+						ecuremap: false,
+						camber: false,
+						underglow: false,
+						bucketseats: false,
+						cannonexhaust: false,
+						goodtyres: false,
+						resonatorandmufflerdelete: false,
+						aftermarketcoldairintake: false
+					}
+				},
+				computed: {
+					animated() {
+						return this.tween.toFixed(0)
+					},
+					total() {
+						let temp = 0
+						temp += (this.make=="subaru"?50:0)+(this.make=="other"?0:0)
+						temp += (this.model=="wrx"?-500:0)+(this.model=="xv"?100:0)+(this.model=="forester"?100:0)+(this.model=="outback"?100:0)+(this.model=="other"?0:0)
+						temp += (this.mods.coilovers?-10:0)+(this.mods.darktint?-20:0)+(this.mods.fakeaero?100:0)+(this.mods.spoiler?10:0)+(this.mods.ecuremap?-20:0)+(this.mods.camber?1000:0)+(this.mods.underglow?50:0)
+						temp += (this.mods.bucketseats?-5:0)+(this.mods.cannonexhaust?15:0)+(this.mods.goodtyres?-10:0)+(this.mods.resonatorandmufflerdelete?300:0)+(this.mods.aftermarketcoldairintake?30:0)
+						return temp
+					}
+				},
+				watch: {
+				  'total'(newVal) {
+					gsap.to(this, { duration: 0.5, tween: newVal })
+				  }
+				}
+			})
+		</script>
+		<div id='app'>
+			<p>
+			Make:
+			<b>Subaru</b><input type="radio" v-model="make" value="subaru">
+			<!--<b>Other</b><input type="radio" v-model="make" value="other">-->
+			</p>
+			<p>
+			Model:
+			<b>WRX</b><input type="radio" v-model="model" value="wrx">
+			<b>Outback</b><input type="radio" v-model="model" value="outback">
+			<b>Forester</b><input type="radio" v-model="model" value="forester">
+			<b>XV</b><input type="radio" v-model="model" value="xv">
+			<b>Other</b><input type="radio" v-model="model" value="other">
+			</p>
+			<div id='mods'>
+				Coilovers: <input type="checkbox" v-model="mods.coilovers"><br>
+				Darker Tint: <input type="checkbox" v-model="mods.darktint"><br>
+				Fake Aero: <input type="checkbox" v-model="mods.fakeaero"><br>
+				Spoiler Kit: <input type="checkbox" v-model="mods.spoiler"><br>
+				ECU Remap: <input type="checkbox" v-model="mods.ecuremap"><br>
+				Slammed with Tons of Camber: <input type="checkbox" v-model="mods.camber"><br>
+				Underglow: <input type="checkbox" v-model="mods.underglow"><br>
+				Bucket Seats: <input type="checkbox" v-model="mods.bucketseats"><br>
+				Cannon Exhaust: <input type="checkbox" v-model="mods.cannonexhaust"><br>
+				Good Tyres: <input type="checkbox" v-model="mods.goodtyres"><br>
+				Resonator and Muffler Delete: <input type="checkbox" v-model="mods.resonatorandmufflerdelete"><br>
+				Aftermarket Cold Air Intake: <input type="checkbox" v-model="mods.aftermarketcoldairintake"><br>
+			</div>
+			<br>
+			<div id='display'>
+				Your car's gay score is: {{animated}}
+				<br>
+				<span v-show='total>100'>Your car is gay</span>
+			</div>
+		</div>
+	</body>
+</html>
