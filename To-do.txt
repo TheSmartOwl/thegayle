@@ -1,0 +1,54 @@
+non sporty subaru +100
+
+make:
+Tesla 10000
+Ford 75
+Toyota 10
+Jeep 1000
+Renault 20
+Mitsubishi 20
+Hyundai 40
+Honda 30
+Mazda 20 if model Miata +1000
+Nissan 20
+Holden 35
+Volvo 45
+BMW 50
+Audi 50
+Mercedes 20
+Citroen 100
+Peugeot 1000
+Abarth -10
+Lexus 10
+Infinity 70
+VW 60
+Kia 40
+Suzuki 30
+GWM 100
+SsangYong 1000
+Byd 10000
+Ram 70
+Mg 55
+Land rover 60
+
+electric+1000
+Diesel -50
+Petrol -5
+
+Manual -50
+Auto +50
+
+SUV +5
+Hatchback -5
+Ute/4wd -20
+Sedan -5
+Wagon -5
+
+Colours
+Red -10
+Blue -20
+Grey +50
+dark grey +10
+Black -30
+White - 10
+Green -10
